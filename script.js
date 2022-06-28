@@ -52,3 +52,58 @@ document.getElementById('cleanCalc').addEventListener('click', cleanCalc)
 const backspace = ()=>display.textContent = display.textContent.slice(0, -1)
 
 document.getElementById('backspace').addEventListener('click', backspace)
+let activeEqual = ()=>{
+    calculate()
+    operator= undefined;
+}
+document.getElementById('equal').addEventListener('click', activeEqual)
+let inverter = ()=>{
+    newNumber= true;
+    updateDisplay(parseFloat(display.textContent)*(-1))
+}
+document.getElementById('inverter').addEventListener('click', inverter)
+
+let hasDecimal = ()=>display.textContent.indexOf('.')!=-1;
+let hasValue = ()=>display.textContent.length>0;
+const toDecimal = ()=>{
+    if(!hasDecimal()){
+        if(hasValue()){
+            updateDisplay('.')
+        }else{
+            updateDisplay('0.')
+        }
+    }
+}
+document.getElementById('decimal').addEventListener('click', toDecimal)
+
+//keyboard
+
+const mapaTeclado = {
+    0: 'tecla0',
+    1: 'tecla1',
+    2: 'tecla2',
+    3: 'tecla3',
+    4: 'tecla4',
+    5: 'tecla5',
+    6: 'tecla6',
+    7: 'tecla7',
+    8: 'tecla8',
+    9: 'tecla9',
+    '/': 'operatorDivide',
+    '*': 'operatorMultiply',
+    '-': 'operatorLess',
+    '+': 'operatorPlus',
+    '=': 'igual',
+    Enter: 'equal',
+    Backspace: 'backspace',
+    c: 'cleanDisplay',
+    Escape: 'cleanDisplay',
+    ',': 'decimal',
+};
+
+const mapearTeclado = (evento) => {
+    const tecla = evento.key;
+    const teclaPermitida = () => Object.keys(mapaTeclado).indexOf(tecla) !== -1;
+    if (teclaPermitida()) document.getElementById(mapaTeclado[tecla]).click();
+};
+document.addEventListener('keydown', mapearTeclado);
