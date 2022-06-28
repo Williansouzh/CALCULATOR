@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+    font-size: 35px;
+    color: #00181a;
+    font-family: 'Nunito', sans-serif;
+}
+
+.calculator_Container{
+    margin: 15vh auto;
+    background-color: #00989b;
+    width: 350px;
+    padding: 15px;
+}
+.display{
+    overflow: hidden;
+    background-color: #dcdedd;
+    font-size: 45px;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+button:hover{
+    background-color: #00989b;
+    cursor: pointer;
+    color: #dcdedd;
+    border: 0.5px solid #dcdedd;
+}
+button{
+    border: 0.5px solid #00989b;
+    width: 75px;
+    margin-top: 10px;
+    padding: 10px;
+}
+.buttons{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
